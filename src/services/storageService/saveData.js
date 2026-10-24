@@ -35,15 +35,6 @@ function saveColumn(boardId, columnData) {
     persistState(state);
 }
 
-function deleteColumn(boardId, columnId) {
-    const state = getState();
-    const board = state[boardId];
-    if (!board || !board.columns) return;
-
-    board.columns = board.columns.filter(col => col.id !== columnId);
-    persistState(state);
-}
-
 // --- 3. TASKS ---
 
 function saveTask(boardId, columnId, taskData) {
@@ -66,22 +57,8 @@ function saveTask(boardId, columnId, taskData) {
     persistState(state);
 }
 
-function deleteTask(boardId, columnId, taskId) {
-    const state = getState();
-    const board = state[boardId];
-    if (!board || !board.columns) return;
-
-    const column = board.columns.find(col => col.id === columnId);
-    if (!column || !column.tasks) return;
-
-    column.tasks = column.tasks.filter(task => task.id !== taskId);
-    persistState(state);
-}
-
 module.exports = {
     saveBoard,
     saveColumn,
-    deleteColumn,
     saveTask,
-    deleteTask
 };
