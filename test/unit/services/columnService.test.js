@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 const { getMockSchema } = require('../../fixtures');
 
 let mockState = {};

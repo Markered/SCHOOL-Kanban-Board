@@ -7,7 +7,7 @@ const mockSchema = {
                 "id": 1,
                 "title": "To Do",
                 "tasks": [
-                    { "id": 1, "title": "Task 1", "content": "Description for Task 1", "tag": "To Do", "priority": "High", "dueDate": "2024-06-30" }
+                    { "id": 1, "title": "Task 1", "content": "Description for Task 1", "tags": ["To Do"], "priority": "High", "dueDate": "2024-06-30" }
                 ]
             },
             {

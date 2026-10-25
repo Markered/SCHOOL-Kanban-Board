@@ -12,7 +12,7 @@ jest.mock('crypto', () => ({
     randomUUID: jest.fn()
 }));
 
-describe('Board Service with Mock Schema', () => {
+describe('Board Service Tests', () => {
     let mockState;
 
     beforeEach(() => {

@@ -17,7 +17,7 @@ const {
 } = require('../../../src/services/storageService');
 const { getMockSchema } = require('../../fixtures');
 
-describe('Storage Service', () => {
+describe('Storage Service Tests', () => {
     const initialMockState = getMockSchema();
 
     beforeEach(() => {
@@ -25,7 +25,6 @@ describe('Storage Service', () => {
         localStorage.setItem('kanban_app_state', JSON.stringify(initialMockState));
     });
 
-    // ==================== LOADERS ====================
     describe('Loaders', () => {
         it('loadAllBoards should return the entire state dictionary', () => {
             const result = loadAllBoards();
@@ -81,7 +80,6 @@ describe('Storage Service', () => {
         });
     });
 
-    // ==================== BOARDS MUTATORS ====================
     describe('Board Mutators', () => {
         it('saveBoard should create or completely overwrite a board', () => {
             const newBoard = { title: "Kanban 2", thumbnail: "", columns: [] };
@@ -91,7 +89,6 @@ describe('Storage Service', () => {
         });
     });
 
-    // ==================== COLUMN MUTATORS ====================
     describe('Column Mutators', () => {
         it('saveColumn should append a new column if it does not exist', () => {
             const newCol = { id: 3, title: "Done", tasks: [] };
@@ -112,12 +109,10 @@ describe('Storage Service', () => {
         });
     });
 
-    // ==================== TASK MUTATORS ====================
     describe('Task Mutators', () => {
         it('saveTask should append a new task if it does not exist', () => {
             const newTask = { id: 99, title: "New Task", content: "Test", priority: "Low" };
-            saveTask('kanban1ID', 2, newTask); // Add to "In Progress" (id: 2)
-
+            saveTask('kanban1ID', 2, newTask);
             const tasks = loadColumnTasks('kanban1ID', 2);
             expect(tasks.length).toBe(1);
             expect(tasks[0].title).toBe("New Task");

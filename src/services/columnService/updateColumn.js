@@ -1,16 +1,17 @@
 const { getState, persistState } = require('../storageService/helpers');
 
-function updateColumn(boardId, columnId, { title }) {
+function updateColumn(boardId, columnId, updates) {
     const state = getState();
-    const board = state[boardId];
-
-    if (!board || !board.columns) return;
-
-    const column = board.columns.find(col => col.id === columnId);
+    
+    const column = state[boardId]?.columns?.find(col => col.id === columnId);
     if (!column) return;
 
-    if (title !== undefined) {
-        column.title = title;
+    const allowedFields = ['title'];
+
+    for (const field of allowedFields) {
+        if (updates[field] !== undefined) {
+            column[field] = updates[field];
+        }
     }
 
     persistState(state);
