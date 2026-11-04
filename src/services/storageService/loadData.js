@@ -1,4 +1,4 @@
-const { getState } = require('./helpers');
+import { getState } from './helpers.js';
 
 // --- 1. BOARDS ---
 
@@ -63,7 +63,7 @@ function loadTask(boardId, taskId) {
     return null;
 }
 
-module.exports = {
+export {
     loadAllBoards,
     loadBoard,
     loadAllBoardCards,

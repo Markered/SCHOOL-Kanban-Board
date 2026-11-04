@@ -1,4 +1,4 @@
-const { getState, persistState } = require('../storageService/helpers');
+import { getState, persistState } from '../storageService/helpers.js';
 
 function deleteColumn(boardId, columnId) {
     const state = getState();
@@ -13,4 +13,4 @@ function deleteColumn(boardId, columnId) {
     }
 }
 
-module.exports = deleteColumn;
+export default deleteColumn;

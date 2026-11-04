@@ -1,7 +1,5 @@
-module.exports = {
-    createTask: require('./createTask'),
-    deleteTask: require('./deleteTask'),
-    moveTask: require('./moveTask'),
-    reorderTask: require('./reorderTask'),
-    updateTask: require('./updateTask')
-}
+export { default as createTask } from './createTask.js';
+export { default as deleteTask } from './deleteTask.js';
+export { default as moveTask } from './moveTask.js';
+export { default as reorderTask } from './reorderTask.js';
+export { default as updateTask } from './updateTask.js';

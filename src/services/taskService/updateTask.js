@@ -1,4 +1,4 @@
-const { getState, persistState } = require("../storageService/helpers");
+import { getState, persistState } from "../storageService/helpers.js";
 
 function updateTask(boardId, columnId, taskId, updates) {
     const state = getState();
@@ -18,4 +18,4 @@ function updateTask(boardId, columnId, taskId, updates) {
     persistState(state);
 }
 
-module.exports = updateTask;
+export default updateTask;

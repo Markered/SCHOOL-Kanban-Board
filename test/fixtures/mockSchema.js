@@ -23,6 +23,4 @@ function getMockSchema() {
     return JSON.parse(JSON.stringify(mockSchema));
 }
 
-module.exports = {
-    getMockSchema
-};
+export { getMockSchema };

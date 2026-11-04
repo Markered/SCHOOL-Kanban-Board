@@ -1,4 +1,4 @@
-const { getState, persistState } = require("../storageService/helpers");
+import { getState, persistState } from "../storageService/helpers.js";
 
 function reorderColumn(boardId, columnId, targetColumnId, position = 'before') {
     const state = getState();
@@ -25,4 +25,4 @@ function reorderColumn(boardId, columnId, targetColumnId, position = 'before') {
     persistState(state);
 }
 
-module.exports = reorderColumn;
+export default reorderColumn;

@@ -1,4 +1,4 @@
-const { saveBoard } = require('../storageService');
+import { saveBoard } from '../storageService/index.js';
 
 function updateBoard(boardId, { title, thumbnail }) {
     const updates = {};
@@ -14,4 +14,4 @@ function updateBoard(boardId, { title, thumbnail }) {
     saveBoard(boardId, updates);
 }
 
-module.exports = updateBoard;
+export default updateBoard;

@@ -1,7 +1,2 @@
-const loadFunctions = require('./loadData');
-const saveFunctions = require('./saveData'); 
-
-module.exports = {
-    ...loadFunctions,
-    ...saveFunctions,
-};
+export * from './loadData.js';
+export * from './saveData.js';

@@ -1,9 +1,8 @@
-const crypto = require('crypto');
-const { saveBoard } = require("../storageService");
+import { saveBoard } from "../storageService/index.js";
 
 function createBoard({title}) {
     const id = crypto.randomUUID();
     saveBoard(id, { title });
 }
 
-module.exports = createBoard;
+export default createBoard;

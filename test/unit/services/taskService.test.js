@@ -1,17 +1,19 @@
-const { updateTask, deleteTask, createTask, reorderTask, moveTask } = require('../../../src/services/taskService');
+import { jest } from '@jest/globals';
 
-const { saveTask } = require('../../../src/services/storageService');
-const { getState, persistState } = require('../../../src/services/storageService/helpers');
-const { getMockSchema } = require('../../fixtures'); // Adjust path as needed
+import { getMockSchema } from '../../fixtures/index.js';
 
-jest.mock("../../../src/services/storageService", () => ({
+jest.unstable_mockModule("../../../src/services/storageService/index.js", () => ({
     saveTask: jest.fn(),
 }));
 
-jest.mock('../../../src/services/storageService/helpers', () => ({
+jest.unstable_mockModule('../../../src/services/storageService/helpers.js', () => ({
     getState: jest.fn(),
     persistState: jest.fn(),
 }));
+
+const { updateTask, deleteTask, createTask, reorderTask, moveTask } = await import('../../../src/services/taskService/index.js');
+const { saveTask } = await import('../../../src/services/storageService/index.js');
+const { getState, persistState } = await import('../../../src/services/storageService/helpers.js');
 
 describe('Task Management Tests', () => {
     beforeEach(() => {

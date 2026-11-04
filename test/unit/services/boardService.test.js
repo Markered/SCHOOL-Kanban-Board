@@ -2,15 +2,12 @@
  * @jest-environment jsdom
  */
 
-const crypto = require('crypto');
-const { createBoard, updateBoard, deleteBoard } = require('../../../src/services/boardService');
-const { loadBoard, loadAllBoards } = require('../../../src/services/storageService');
-const { getMockSchema } = require('../../fixtures');
+import { jest } from '@jest/globals';
+import { createBoard, updateBoard, deleteBoard } from '../../../src/services/boardService/index.js';
+import { loadBoard, loadAllBoards } from '../../../src/services/storageService/index.js';
+import { getMockSchema } from '../../fixtures/index.js';
 
-jest.mock('crypto', () => ({
-    ...jest.requireActual('crypto'),
-    randomUUID: jest.fn()
-}));
+const randomUUID = jest.spyOn(globalThis.crypto, 'randomUUID');
 
 describe('Board Service Tests', () => {
     let mockState;
@@ -24,7 +21,7 @@ describe('Board Service Tests', () => {
     describe('createBoard', () => {
         it('should generate a UUID, create a board, and persist it to storage', () => {
             const mockUuid = 'kanban2ID';
-            crypto.randomUUID.mockReturnValue(mockUuid);
+            randomUUID.mockReturnValue(mockUuid);
 
             createBoard({ title: "Kanban 2" });
 

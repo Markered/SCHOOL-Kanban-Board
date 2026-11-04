@@ -1,4 +1,4 @@
-const { getState, persistState} = require('./helpers');
+import { getState, persistState } from './helpers.js';
 
 
 // --- 1. BOARDS ---
@@ -57,7 +57,7 @@ function saveTask(boardId, columnId, taskData) {
     persistState(state);
 }
 
-module.exports = {
+export {
     saveBoard,
     saveColumn,
     saveTask,

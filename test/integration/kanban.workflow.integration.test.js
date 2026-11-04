@@ -2,11 +2,11 @@
  * @jest-environment jsdom
  */
 
-const { updateBoard, deleteBoard } = require('../../src/services/boardService');
-const { updateColumn, deleteColumn } = require('../../src/services/columnService');
-const { createTask, updateTask, deleteTask, reorderTask, moveTask } = require('../../src/services/taskService');
-const { loadBoard, loadColumn, loadTask } = require('../../src/services/storageService');
-const { getMockSchema } = require('../fixtures');
+import { updateBoard, deleteBoard } from '../../src/services/boardService/index.js';
+import { updateColumn, deleteColumn } from '../../src/services/columnService/index.js';
+import { createTask, updateTask, deleteTask, reorderTask, moveTask } from '../../src/services/taskService/index.js';
+import { loadBoard, loadColumn, loadTask } from '../../src/services/storageService/index.js';
+import { getMockSchema } from '../fixtures/index.js';
 
 describe('Full Kanban Workflow Integration Tests', () => {
     beforeEach(() => {

@@ -1,5 +1,3 @@
-const { getMockSchema } = require('./mockSchema');
+import { getMockSchema } from './mockSchema.js';
 
-module.exports = {
-    getMockSchema
-};
+export { getMockSchema };

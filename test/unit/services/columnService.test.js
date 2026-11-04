@@ -1,4 +1,5 @@
-const { getMockSchema } = require('../../fixtures');
+import { jest } from '@jest/globals';
+import { getMockSchema } from '../../fixtures/index.js';
 
 let mockState = {};
 const mockGetState = jest.fn(() => mockState);
@@ -6,17 +7,17 @@ const mockPersistState = jest.fn((newState) => {
     mockState = newState;
 });
 
-jest.mock('../../../src/services/storageService/helpers', () => ({
+jest.unstable_mockModule('../../../src/services/storageService/helpers.js', () => ({
     getState: () => mockGetState(),
     persistState: (state) => mockPersistState(state)
 }));
 
 const mockSaveColumn = jest.fn();
-jest.mock('../../../src/services/storageService', () => ({
+jest.unstable_mockModule('../../../src/services/storageService/index.js', () => ({
     saveColumn: (...args) => mockSaveColumn(...args)
 }));
 
-const { updateColumn, createColumn, deleteColumn, reorderColumn } = require('../../../src/services/columnService');
+const { updateColumn, createColumn, deleteColumn, reorderColumn } = await import('../../../src/services/columnService/index.js');
 
 describe('Column Service Tests', () => {
     beforeEach(() => {

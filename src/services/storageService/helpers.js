@@ -7,4 +7,4 @@ function persistState(state) {
     localStorage.setItem('kanban_app_state', JSON.stringify(state));
 }
 
-module.exports = { getState, persistState };
+export { getState, persistState };

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const {
+import {
     loadAllBoards,
     loadBoard,
     loadAllBoardCards,
@@ -14,8 +14,8 @@ const {
     saveBoard,
     saveColumn,
     saveTask,
-} = require('../../../src/services/storageService');
-const { getMockSchema } = require('../../fixtures');
+} from '../../../src/services/storageService/index.js';
+import { getMockSchema } from '../../fixtures/index.js';
 
 describe('Storage Service Tests', () => {
     const initialMockState = getMockSchema();

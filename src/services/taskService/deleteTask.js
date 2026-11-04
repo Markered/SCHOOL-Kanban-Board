@@ -1,4 +1,4 @@
-const { getState, persistState } = require('../storageService/helpers');
+import { getState, persistState } from '../storageService/helpers.js';
 
 function deleteTask(boardId, columnId, taskId) {
     const state = getState();
@@ -12,4 +12,4 @@ function deleteTask(boardId, columnId, taskId) {
     persistState(state);
 }
 
-module.exports = deleteTask;
+export default deleteTask;

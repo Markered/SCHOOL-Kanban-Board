@@ -1,4 +1,4 @@
-const { getState, persistState } = require('../storageService/helpers');
+import { getState, persistState } from '../storageService/helpers.js';
 
 function deleteBoard(boardId) {
     const state = getState();
@@ -6,4 +6,4 @@ function deleteBoard(boardId) {
     persistState(state);
 }
 
-module.exports = deleteBoard;
+export default deleteBoard;
