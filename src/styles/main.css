@@ -1,107 +1,9 @@
-body {
-    background-color: rgb(26, 26, 26);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-}
+@import url('./base.css');
+@import url('./layout.css');
+@import url('./components/boardCard.css');
+@import url('./components/modal.css');
 
-* {
-    border: 0px;
-    margin: 0;
-    color: white;
-}
-
-li {
-    list-style-type: none;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 80px - 10px);
-    padding: 20px;
-}
-
-.boardCardList {
-    position: relative;
-    background-color: rgb(32, 30, 30);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: start;
-    overflow-y: scroll;
-    padding: 16px;
-    border-radius: 5px;
-    margin-top: 10px;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    gap: 16px;
-    list-style: none;
-}
-
-.boardCardList li {
-    width: 100%;
-    max-width: 350px;
-    box-sizing: border-box;
-}
-
-.boardCard {
-    background-color: rgb(26, 26, 26);
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px 3px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-.boardCard:hover {
-    opacity: 0.6;
-    cursor: pointer;
-}
-
-.boardCard .temp-thumbnail, .boardCard img {
-    width: 100%;
-    height: 150px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.temp-thumbnail {
-    background: linear-gradient(to top right, rgb(22, 22, 155), rgb(22, 21, 21));
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(32, 30, 30);
-    box-sizing: border-box;
-    height: 80px;
-    width: 100%;
-    padding: 10px;
-    align-items: center;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-nav {
-    width: 200px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-nav a {
-    box-sizing: border-box;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-nav a:hover {
-    background-color: rgb(54, 49, 49);
-}
-
-.createBoardBtn {
+.openCreateBoardModalBtn {
     border-radius: 15px;
     position: fixed;
     display: flex;
@@ -116,14 +18,8 @@ nav a:hover {
     background-color: rgb(49, 49, 154);
 }
 
-.createBoardBtn:hover {
+.openCreateBoardModalBtn:hover {
     cursor: pointer;
     opacity: 0.6;
 }
 
-.noBoardsMsg {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    bottom: 50%;
-}

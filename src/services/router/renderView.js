@@ -61,6 +61,4 @@ function renderView() {
   document.getElementById('app').innerHTML = html;
 }
 
-window.addEventListener('hashchange', renderView);
-window.addEventListener('DOMContentLoaded', renderView);
-window.addEventListener('addItem', renderView);
+export default renderView;

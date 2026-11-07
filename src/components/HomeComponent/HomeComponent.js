@@ -1,15 +1,22 @@
-import createBoard from "../../services/boardService/createBoard.js";
 import { getState } from "../../services/storageService/helpers.js";
 import BoardCard from "./BoardCards.js";
+import CreateBoardModal from "./modals/createBoardModal.js";
+import RenameBoardModal from "./modals/renameBoardModal.js";
 
 function HomeComponent() {
     const state = getState();
     const boardCards = [];
-    let content = `<div class="noBoardsMsg">Looks like you haven't created any boards yet.</div>`;
+    let content = `
+        <div class="noBoardsMsg">
+            <img src="./src/assets/images/noContent.png" alt="No boards image">
+            <p>Looks like you haven't created any boards yet.</p>
+        </div>
+        <img class="addBoardArrow" src="./src/assets/icons/bottomRightArrow.png" alt="arrow pointing to add board"/>
+        `;
     
     for (const boardKey in state) {
         const boardData = state[boardKey];
-        boardCards.push(BoardCard(boardData));
+        boardCards.push(BoardCard(boardKey, boardData));
     }
 
     if (boardCards.length > 0) {
@@ -25,29 +32,11 @@ function HomeComponent() {
         html: `
             <h2>Your boards</h2>
             <ul class="boardCardList">${content}</ul>
-            <button class='createBoardBtn'>+</button>
+            <button class='openCreateBoardModalBtn'>+</button>
+            ${CreateBoardModal()}
+            ${RenameBoardModal()}
         `
     }
 }
 
 export default HomeComponent;
-
-
-function handleAddBoard(title) {
-    const boardTitle = title ? title : 'Blank board';
-    createBoard({title: boardTitle});
-}
-
-const app = document.getElementById('app');
-
-app.addEventListener('click', (e) => {
-    const createBoardBtn = e.target.closest('.createBoardBtn');
-    if (createBoardBtn) {
-        handleAddBoard();
-        const addEvent = new CustomEvent('addItem', {
-            bubbles: true,
-        });
-
-        document.dispatchEvent(addEvent);
-    }
-})

@@ -1,0 +1,58 @@
+#createBoardModal,
+#renameBoardModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    background-color: rgb(32, 30, 30);
+    box-shadow: 1px 1px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#createBoardModal .board-form,
+#renameBoardModal .rename-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#createBoardModal .modal-footer,
+#renameBoardModal .modal-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+#createBoardModal .field-label,
+#renameBoardModal .field-label {
+    font-size: 15px;
+}
+
+#createBoardModal #boardNameInput,
+#renameBoardModal #renameBoardInput {
+    background-color: rgb(26, 26, 26);
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+#createBoardModal .btn,
+#renameBoardModal .btn {
+    padding: 10px;
+    background-color: rgb(26, 26, 26);
+    border-radius: 5px;
+}
+
+#createBoardModal .btn-primary,
+#renameBoardModal .btn-primary {
+    background-color: rgb(49, 49, 154);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
