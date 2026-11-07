@@ -1,12 +1,4 @@
-function HomeComponent() {
-  return {
-    title: 'Home - My App',
-    html: `
-      <h2>Home View</h2>
-      <p>Welcome to the homepage!</p>
-    `
-  };
-}
+import HomeComponent from "../../components/HomeComponent/HomeComponent.js";
 
 function AboutComponent() {
   return {
@@ -66,8 +58,9 @@ function renderView() {
   
   const { title, html } = ViewComponent(param);
   document.title = title;
-  document.getElementById('app').innerHTML = html + `Current URL: <p>${window.location}</p>`;
+  document.getElementById('app').innerHTML = html;
 }
 
 window.addEventListener('hashchange', renderView);
 window.addEventListener('DOMContentLoaded', renderView);
+window.addEventListener('addItem', renderView);
