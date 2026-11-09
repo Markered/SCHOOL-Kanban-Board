@@ -1,7 +1,8 @@
-header {
+#header {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(32, 30, 30);
+    background-color: rgb(37, 35, 35);
+    border: 1px solid rgba(58, 58, 58, 0.1);
     box-sizing: border-box;
     height: 80px;
     width: 100%;
@@ -9,7 +10,7 @@ header {
     align-items: center;
 }
 
-header img {
+#header img {
     height: 60px;
 }
 

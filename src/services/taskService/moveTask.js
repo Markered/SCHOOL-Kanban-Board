@@ -6,13 +6,13 @@ function moveTask(boardId, sourceColumnId, targetColumnId, taskId, targetTaskId 
     
     if (!board || !board.columns) return;
 
-    const sourceCol = board.columns.find(col => col.id === sourceColumnId);
-    const targetCol = board.columns.find(col => col.id === targetColumnId);
+    const sourceCol = board.columns.find(col => String(col.id) === String(sourceColumnId));
+    const targetCol = board.columns.find(col => String(col.id) === String(targetColumnId));
 
-    if (!sourceCol || !targetCol || !sourceCol.tasks) return;
+    if (!sourceCol || !targetCol || String(sourceColumnId) === String(targetColumnId) || !sourceCol.tasks) return false;
 
-    const taskIndex = sourceCol.tasks.findIndex(t => t.id === taskId);
-    if (taskIndex === -1) return;
+    const taskIndex = sourceCol.tasks.findIndex(t => String(t.id) === String(taskId));
+    if (taskIndex === -1) return false;
 
     const [task] = sourceCol.tasks.splice(taskIndex, 1);
 
@@ -33,6 +33,7 @@ function moveTask(boardId, sourceColumnId, targetColumnId, taskId, targetTaskId 
     }
 
     persistState(state);
+    return true;
 }
 
 export default moveTask;

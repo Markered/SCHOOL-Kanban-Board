@@ -1,0 +1,45 @@
+.not-found-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: clamp(150px, 80vw, 400px);
+    top: 50%;
+    left: 50%;
+}
+
+.not-found-container img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.not-found-container p, .not-found-container h2 {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: clamp(14px, 1.5vw, 18px);
+    width: 100%;
+}
+
+.not-found-container h2 {
+    font-size: clamp(15px, 2.5vw, 20px);
+}
+
+.not-found-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    font-size: clamp(14px, 1.5vw, 18px);
+    background-color: rgb(37, 35, 35);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(58, 58, 58, 0.1);
+}
+
+.not-found-container a:hover {
+    opacity: 0.6;
+    border: 1px solid rgba(58, 58, 58, 0.3);
+}

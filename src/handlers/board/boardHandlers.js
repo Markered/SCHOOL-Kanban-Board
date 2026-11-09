@@ -1,5 +1,5 @@
-import { deleteBoard } from "../services/boardService/index.js";
-import renderView from "../services/router/renderView.js";
+import { deleteBoard } from "../../services/boardService/index.js";
+import renderView from "../../services/router/renderView.js";
 
 export function handleBoardActions(e) {
     const renameBtn = e.target.closest('.rename-option');

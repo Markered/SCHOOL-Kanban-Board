@@ -2,18 +2,18 @@ import { getState, persistState } from "../storageService/helpers.js";
 
 function reorderTask(boardId, columnId, taskId, targetTaskId, position = 'before') {
     const state = getState();
-    const column = state[boardId]?.columns?.find(col => col.id === columnId);
+    const column = state[boardId]?.columns?.find(col => String(col.id) === String(columnId));
     
     if (!column || !column.tasks) return;
 
-    const taskIndex = column.tasks.findIndex(t => t.id === taskId);
-    const targetIndex = column.tasks.findIndex(t => t.id === targetTaskId);
+    const taskIndex = column.tasks.findIndex(t => String(t.id) === String(taskId));
+    const targetIndex = column.tasks.findIndex(t => String(t.id) === String(targetTaskId));
 
     if (taskIndex === -1 || targetIndex === -1) return;
 
     const [task] = column.tasks.splice(taskIndex, 1);
 
-    let newTargetIndex = column.tasks.findIndex(t => t.id === targetTaskId);
+    let newTargetIndex = column.tasks.findIndex(t => String(t.id) === String(targetTaskId));
     if (position === 'after') {
         newTargetIndex += 1;
     }

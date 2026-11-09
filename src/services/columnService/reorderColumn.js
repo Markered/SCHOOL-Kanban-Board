@@ -5,8 +5,8 @@ function reorderColumn(boardId, columnId, targetColumnId, position = 'before') {
     const board = state[boardId];
     if (!board || !board.columns) return;
 
-    const currentIndex = board.columns.findIndex(col => col.id === columnId);
-    let targetIndex = board.columns.findIndex(col => col.id === targetColumnId);
+    const currentIndex = board.columns.findIndex(col => String(col.id) === String(columnId));
+    let targetIndex = board.columns.findIndex(col => String(col.id) === String(targetColumnId));
 
     if (currentIndex === -1 || targetIndex === -1) return;
 

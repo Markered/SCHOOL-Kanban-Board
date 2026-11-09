@@ -6,7 +6,7 @@ function deleteColumn(boardId, columnId) {
     if (!board || !board.columns) return;
 
     const originalLength = board.columns.length;
-    board.columns = board.columns.filter(col => col.id !== columnId);
+    board.columns = board.columns.filter(col => String(col.id) !== String(columnId));
 
     if (board.columns.length !== originalLength) {
         persistState(state);
