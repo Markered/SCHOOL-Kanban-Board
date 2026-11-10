@@ -52,12 +52,15 @@ describe('Column Service Tests', () => {
     describe('createColumn', () => {
         test('should generate an ID and call saveColumn with the title', () => {
             const mockId = 12345;
-            jest.spyOn(crypto, 'getRandomValues').mockReturnValue(mockId);
+            jest.spyOn(crypto, 'randomUUID').mockReturnValue(mockId);
 
-            createColumn({ title: "New Feature Column" });
+            createColumn('Kanban1ID', { title: "New Feature Column" });
 
             expect(mockSaveColumn).toHaveBeenCalledTimes(1);
-            expect(mockSaveColumn).toHaveBeenCalledWith(mockId, { title: "New Feature Column" });
+            expect(mockSaveColumn).toHaveBeenCalledWith(
+                "Kanban1ID",
+                { id: mockId, title: "New Feature Column", tasks: [] }
+            );
         });
     });
 
