@@ -8,7 +8,7 @@ function Column(column) {
         : columnTasks.map(task => TaskCard(task, column)).join('');
 
     return `
-        <section class="board-column" data-id="${column.id}">
+        <section class="board-column" data-id="${column.id}" data-board-id="${escapeHtml(column.boardId || '')}">
             <header class="column-header">
                 <h3>${escapeHtml(column.title)}</h3>
                 <button class="column-options-toggle" type="button" aria-label="Column options">⋮</button>

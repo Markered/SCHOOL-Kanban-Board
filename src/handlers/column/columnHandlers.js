@@ -13,7 +13,7 @@ export function handleColumnAction(target) {
     if (!option) return false;
 
     const column = option.closest('.board-column');
-    const boardId = document.querySelector('.task-edit-form')?.dataset.boardId;
+    const boardId = column?.dataset.boardId;
     const columnId = column?.dataset.id;
     if (!column || !boardId || !columnId) return true;
 
