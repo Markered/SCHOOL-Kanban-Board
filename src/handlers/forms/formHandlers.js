@@ -1,6 +1,7 @@
 import { createBoard } from "../../services/boardService/index.js";
 import { loadColumn } from "../../services/storageService/index.js";
 import { createTask } from "../../services/taskService/index.js";
+import { createColumn } from "../../services/columnService/index.js";
 import renderView from "../../services/router/renderView.js";
 import { submitBoardRename } from "../board/index.js";
 import { submitColumnCreate, submitColumnRename } from "../column/index.js";
@@ -36,11 +37,20 @@ function submitBoard(form) {
 function submitTaskCreateForm(form) {
     const boardId = form.dataset.boardId;
     const title = form.querySelector('#taskTitleInput')?.value.trim();
-    const selectedColumnId = form.querySelector('#taskColumnInput')?.value;
-    const column = boardId && selectedColumnId
-        ? loadColumn(boardId, selectedColumnId) || loadColumn(boardId, Number(selectedColumnId))
-        : null;
-    if (!boardId || !column || !title) return false;
+    const columnInput = form.querySelector('.task-column-input');
+    const selectedColumnId = columnInput?.tagName === 'SELECT' ? columnInput.value : '';
+    const newColumnInput = form.querySelector('.task-new-column-input');
+    const newColumnTitle = columnInput?.tagName !== 'SELECT'
+        ? columnInput?.value.trim()
+        : newColumnInput?.value.trim();
+    const column = boardId && newColumnTitle
+        ? createColumn(boardId, { title: newColumnTitle })
+        : boardId && selectedColumnId
+            ? loadColumn(boardId, selectedColumnId) || loadColumn(boardId, Number(selectedColumnId))
+            : null;
+    if (!boardId || !column || !title) {
+        return false;
+    }
     submitTaskCreateData(form, boardId, column.id, title);
     renderView();
     return true;
@@ -49,6 +59,8 @@ function submitTaskCreateForm(form) {
 function submitTaskCreateData(form, boardId, columnId, title) {
     const content = form.querySelector('#taskContentInput')?.value.trim() || '';
     const tags = [...new Set((form.querySelector('#taskTagsInput')?.value || '').split(',').map(tag => tag.trim()).filter(Boolean))];
-    const task = { title, content, tags, priority: 'Normal', dueDate: '' };
+    const priority = form.querySelector('#taskPriorityInput')?.value || 'Normal';
+    const dueDate = form.querySelector('#taskDueDateInput')?.value || '';
+    const task = { title, content, tags, priority, dueDate };
     createTask(boardId, columnId, task);
 }

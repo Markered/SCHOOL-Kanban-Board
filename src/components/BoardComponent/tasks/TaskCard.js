@@ -19,11 +19,16 @@ function TaskCard(task, column) {
         <li>
             <div class="task-tile" data-modal-id="${modalId}" data-task-id="${task.id}" tabindex="0">
                 <div class="task-options-menu" hidden>
-                    <button type="button" class="task-option-edit">Edit</button>
-                    <button type="button" class="task-option-up">Move up</button>
-                    <button type="button" class="task-option-down">Move down</button>
-                    <button type="button" class="task-option-move">Move column</button>
-                    <button type="button" class="task-option-delete">Delete</button>
+                    <button type="button" class="task-option-edit">
+                        <span class="menu-icon menu-icon-edit" aria-hidden="true"></span>Edit</button>
+                    <button type="button" class="task-option-delete">
+                        <span class="menu-icon menu-icon-delete" aria-hidden="true"></span>Delete</button>
+                    <button type="button" class="task-option-up">
+                        <span class="menu-icon menu-icon-top-arrow" aria-hidden="true"></span>Move up</button>
+                    <button type="button" class="task-option-down">
+                        <span class="menu-icon menu-icon-bottom-arrow" aria-hidden="true"></span>Move down</button>
+                    <button type="button" class="task-option-move">
+                        <span class="menu-icon menu-icon-right-arrow" aria-hidden="true"></span>Move column</button>
                 </div>
                 <span class="task-tile-meta">
                     <span class="task-tile-priority" data-priority="${escapeHtml(priority)}">${escapeHtml(priority)}</span>

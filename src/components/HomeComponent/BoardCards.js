@@ -10,8 +10,10 @@ function BoardCard(id, data) {
                 <details class="options-menu">
                     <summary class="options-trigger" aria-label="Board options">⋮</summary>
                     <div class="dropdown-content">
-                        <button type="button" class="rename-option">Rename</button>
-                        <button type="button" class="delete-option">Delete</button>
+                        <button type="button" class="rename-option">
+                            <span class="menu-icon menu-icon-edit" aria-hidden="true"></span>Rename</button>
+                        <button type="button" class="delete-option">
+                            <span class="menu-icon menu-icon-delete" aria-hidden="true"></span>Delete</button>
                     </div>
                 </details>
             </div>

@@ -13,10 +13,14 @@ function Column(column) {
                 <h3>${escapeHtml(column.title)}</h3>
                 <button class="column-options-toggle" type="button" aria-label="Column options">⋮</button>
                 <div class="column-options-menu" hidden>
-                    <button type="button" class="column-option-rename">Rename</button>
-                    <button type="button" class="column-option-delete">Delete</button>
-                    <button type="button" class="column-option-left">Move left</button>
-                    <button type="button" class="column-option-right">Move right</button>
+                    <button type="button" class="column-option-rename">
+                        <span class="menu-icon menu-icon-edit" aria-hidden="true"></span>Rename</button>
+                    <button type="button" class="column-option-delete">
+                        <span class="menu-icon menu-icon-delete" aria-hidden="true"></span>Delete</button>
+                    <button type="button" class="column-option-left">
+                        <span class="menu-icon menu-icon-left-arrow" aria-hidden="true"></span>Move left</button>
+                    <button type="button" class="column-option-right">
+                        <span class="menu-icon menu-icon-right-arrow" aria-hidden="true"></span>Move right</button>
                 </div>
             </header>
             <ul class="task-list">${tasks}</ul>

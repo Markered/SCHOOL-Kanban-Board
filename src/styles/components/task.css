@@ -41,6 +41,8 @@
     padding: 8px 10px;
     text-align: left;
     border-radius: 3px;
+    display: flex;
+    align-items: center;
 }
 
 .task-options-menu button:hover, .column-options-menu button:hover {

@@ -27,7 +27,8 @@ function BoardComponent(id) {
                     <div class="board-options-container">
                         <button class="board-options-toggle" type="button" aria-label="Board options">⋮</button>
                         <div class="board-options-menu" hidden>
-                            <button type="button" class="board-option-rename">Rename</button>
+                            <button type="button" class="board-option-rename">
+                                <span class="menu-icon menu-icon-edit" aria-hidden="true"></span>Rename</button>
                         </div>
                     </div>
                 </div>

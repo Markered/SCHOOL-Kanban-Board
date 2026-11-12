@@ -72,62 +72,96 @@ dialog::backdrop {
 }
 
 .task-modal {
-    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    padding: 14px;
     width: min(420px, 90vw);
-    background-color: rgb(32, 30, 30);
+    background-color: rgb(26, 26, 26);
+    border: 1px solid rgba(58, 58, 58, 0.25);
     border-radius: 5px;
 }
 
 .task-modal-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 10px;
 }
 
 .task-edit-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+}
+
+.task-create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .task-edit-btn {
     margin-left: auto;
+    flex-shrink: 0;
 }
 
 .task-field {
     width: 100%;
-    padding: 10px;
-    background-color: rgb(26, 26, 26);
+    padding: 8px 10px;
+    background-color: rgb(37, 35, 35);
     border-radius: 5px;
     font-size: 16px;
 }
 
 .task-meta {
     display: flex;
-    gap: 15px;
+    gap: 8px;
 }
 
-.task-field-group, .task-tag-section {
+.task-column-picker {
     display: flex;
+    gap: 8px;
+}
+
+.task-column-picker .task-column-input {
+    flex: 1;
+}
+
+.task-column-picker .task-add-column {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 40px;
+    padding: 8px;
+}
+
+.task-tag-section {
+    display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 5px;
 }
 
-.task-meta .task-field-group {
-    flex: 1;
-}
-
 .task-content-input {
-    min-height: 120px;
+    min-height: 90px;
     resize: vertical;
 }
 
 .task-tags {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 5px;
     min-height: 28px;
+}
+
+.task-modal .task-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .task-tags-empty {
@@ -143,6 +177,10 @@ dialog::backdrop {
     flex: 1;
 }
 
+.task-tag-editor .btn {
+    padding: 8px 12px;
+}
+
 .remove-task-tag {
     margin-left: 5px;
     font-size: 11px;
@@ -153,9 +191,39 @@ dialog::backdrop {
     cursor: default;
 }
 
-.task-edit-form .modal-footer {
+.task-edit-form .modal-footer,
+.task-create-form .modal-footer {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
     margin-top: 10px;
+}
+
+.task-edit-form:not(.is-editing) .task-edit-cancel,
+.task-edit-form:not(.is-editing) .task-save-btn,
+.task-edit-form.is-editing .task-exit-btn,
+.task-edit-form.is-editing .task-edit-btn {
+    display: none;
+}
+
+.task-modal .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.task-modal .btn-secondary {
+    background-color: rgb(37, 35, 35);
+}
+
+.task-modal .btn-primary {
+    background-color: rgb(49, 49, 154);
+}
+
+.task-modal .btn .menu-icon {
+    flex-basis: 20px;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
 }

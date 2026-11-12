@@ -32,7 +32,7 @@ function HomeComponent() {
         html: `
             <h2>Your boards</h2>
             <ul class="boardCardList">${content}</ul>
-            <button class='openCreateBoardModalBtn'>+</button>
+            <button class='openCreateBoardModalBtn' aria-label="Create board">+</button>
             ${CreateBoardModal()}
             ${RenameBoardModal()}
         `
