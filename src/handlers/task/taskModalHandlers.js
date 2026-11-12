@@ -3,6 +3,7 @@ import renderView from "../../services/router/renderView.js";
 import {
     addTaskTag,
     removeTaskTag,
+    renderTaskTags,
     restoreTaskSnapshot,
     setTaskEditMode
 } from "./taskEditHandlers.js";
@@ -23,19 +24,20 @@ export function handleTaskAction(target) {
         const form = createCancelButton.closest('.task-form');
         form?.reset();
         resetColumnPicker(form);
+        resetCreateTaskForm(form);
         createCancelButton.closest('dialog')?.close();
+        return true;
+    }
+
+    const addTaskButton = target.closest('.column-add-task');
+    if (addTaskButton) {
+        openCreateTaskModal(addTaskButton.dataset.columnId);
         return true;
     }
 
     const emptyPlaceholder = target.closest('.empty-task-placeholder');
     if (emptyPlaceholder) {
-        const modal = document.getElementById('createTaskModal');
-        const select = modal?.querySelector('.task-column-input');
-        if (modal && select) {
-            select.value = emptyPlaceholder.dataset.columnId;
-            modal.showModal();
-            modal.querySelector('#taskTitleInput')?.focus();
-        }
+        openCreateTaskModal(emptyPlaceholder.dataset.columnId);
         return true;
     }
 
@@ -163,4 +165,25 @@ function resetColumnPicker(form) {
     input.hidden = true;
     input.required = false;
     input.value = '';
+}
+
+function openCreateTaskModal(columnId) {
+    const modal = document.getElementById('createTaskModal');
+    const form = modal?.querySelector('.task-create-form');
+    const select = form?.querySelector('.task-column-input');
+    if (!modal || !form || !select || select.tagName !== 'SELECT') return;
+
+    form.dataset.columnId = String(columnId);
+    select.value = String(columnId);
+    select.closest('.task-column-picker').hidden = true;
+    select.required = false;
+    modal.showModal();
+    modal.querySelector('#taskTitleInput')?.focus();
+}
+
+function resetCreateTaskForm(form) {
+    if (!form) return;
+    delete form.dataset.columnId;
+    form.querySelector('.task-column-picker')?.removeAttribute('hidden');
+    renderTaskTags(form, '');
 }

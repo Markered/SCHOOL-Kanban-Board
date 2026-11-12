@@ -35,8 +35,10 @@ function CreateTaskModal(boardId) {
                         <span class="task-tags-empty">No tags</span>
                     </div>
                     <div class="task-tag-editor">
-                        <input class="task-field task-tag-input" type="text" id="taskTagsInput" placeholder="Add tags separated by commas" aria-label="Task tags" />
+                        <input class="task-field task-tag-input" type="text" placeholder="Add a tag" aria-label="New tag" />
+                        <button class="btn btn-secondary add-task-tag" type="button" aria-label="Add tag">+</button>
                     </div>
+                    <input class="task-tags-value" name="tags" type="hidden" value="" />
                 </div>
                 <footer class="modal-footer">
                     <button class="btn btn-secondary task-create-cancel" type="button">Cancel</button>

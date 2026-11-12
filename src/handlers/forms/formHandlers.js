@@ -38,7 +38,8 @@ function submitTaskCreateForm(form) {
     const boardId = form.dataset.boardId;
     const title = form.querySelector('#taskTitleInput')?.value.trim();
     const columnInput = form.querySelector('.task-column-input');
-    const selectedColumnId = columnInput?.tagName === 'SELECT' ? columnInput.value : '';
+    const selectedColumnId = form.dataset.columnId ||
+        (columnInput?.tagName === 'SELECT' ? columnInput.value : '');
     const newColumnInput = form.querySelector('.task-new-column-input');
     const newColumnTitle = columnInput?.tagName !== 'SELECT'
         ? columnInput?.value.trim()
@@ -58,7 +59,7 @@ function submitTaskCreateForm(form) {
 
 function submitTaskCreateData(form, boardId, columnId, title) {
     const content = form.querySelector('#taskContentInput')?.value.trim() || '';
-    const tags = [...new Set((form.querySelector('#taskTagsInput')?.value || '').split(',').map(tag => tag.trim()).filter(Boolean))];
+    const tags = [...new Set((form.querySelector('.task-tags-value')?.value || '').split(',').map(tag => tag.trim()).filter(Boolean))];
     const priority = form.querySelector('#taskPriorityInput')?.value || 'Normal';
     const dueDate = form.querySelector('#taskDueDateInput')?.value || '';
     const task = { title, content, tags, priority, dueDate };

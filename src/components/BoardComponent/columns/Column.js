@@ -5,7 +5,12 @@ function Column(column) {
     const columnTasks = column.tasks || [];
     const tasks = columnTasks.length === 0
         ? `<li><button class="empty-task-placeholder" type="button" data-column-id="${column.id}">No tasks yet</button></li>`
-        : columnTasks.map(task => TaskCard(task, column)).join('');
+        : `${columnTasks.map(task => TaskCard(task, column)).join('')}
+            <li>
+                <button class="column-add-task" type="button" data-column-id="${column.id}">
+                    <span class="menu-icon menu-icon-add-task" aria-hidden="true"></span>Add task
+                </button>
+            </li>`;
 
     return `
         <section class="board-column" data-id="${column.id}" data-board-id="${escapeHtml(column.boardId || '')}">

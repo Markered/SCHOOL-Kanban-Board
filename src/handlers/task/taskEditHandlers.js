@@ -54,7 +54,7 @@ export function renderTaskTags(form, value) {
 }
 
 export function addTaskTag(button) {
-    const form = button.closest('.task-edit-form');
+    const form = button.closest('.task-form');
     const input = form?.querySelector('.task-tag-input');
     if (!form || !input?.value.trim()) return true;
     const tags = parseTags(form.querySelector('.task-tags-value').value);
@@ -66,7 +66,7 @@ export function addTaskTag(button) {
 }
 
 export function removeTaskTag(button) {
-    const form = button.closest('.task-edit-form');
+    const form = button.closest('.task-form');
     const tags = parseTags(form.querySelector('.task-tags-value').value);
     tags.splice(Number(button.dataset.tagIndex), 1);
     renderTaskTags(form, tags.join(','));
