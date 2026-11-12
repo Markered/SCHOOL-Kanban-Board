@@ -49,53 +49,53 @@ button:hover {
 }
 
 .menu-icon-add-board {
-    mask-image: url('/src/assets/icons/menu-icons/addBoardIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/addBoardIcon.png');
+    mask-image: url('../assets/icons/menu-icons/addBoardIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/addBoardIcon.png');
 }
 
 .menu-icon-add-column {
-    mask-image: url('/src/assets/icons/menu-icons/addColumnIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/addColumnIcon.png');
+    mask-image: url('../assets/icons/menu-icons/addColumnIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/addColumnIcon.png');
 }
 
 .menu-icon-add-task {
-    mask-image: url('/src/assets/icons/menu-icons/addTaskIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/addTaskIcon.png');
+    mask-image: url('../assets/icons/menu-icons/addTaskIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/addTaskIcon.png');
 }
 
 .menu-icon-delete {
-    mask-image: url('/src/assets/icons/menu-icons/deleteIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/deleteIcon.png');
+    mask-image: url('../assets/icons/menu-icons/deleteIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/deleteIcon.png');
 }
 
 .menu-icon-edit {
-    mask-image: url('/src/assets/icons/menu-icons/editIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/editIcon.png');
+    mask-image: url('../assets/icons/menu-icons/editIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/editIcon.png');
 }
 
 .menu-icon-left-arrow {
-    mask-image: url('/src/assets/icons/menu-icons/moveColumnLeftIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/moveColumnLeftIcon.png');
+    mask-image: url('../assets/icons/menu-icons/moveColumnLeftIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/moveColumnLeftIcon.png');
 }
 
 .menu-icon-right-arrow {
-    mask-image: url('/src/assets/icons/menu-icons/moveColumnRightIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/moveColumnRightIcon.png');
+    mask-image: url('../assets/icons/menu-icons/moveColumnRightIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/moveColumnRightIcon.png');
 }
 
 .menu-icon-top-arrow {
-    mask-image: url('/src/assets/icons/menu-icons/moveTaskUpIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/moveTaskUpIcon.png');
+    mask-image: url('../assets/icons/menu-icons/moveTaskUpIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/moveTaskUpIcon.png');
 }
 
 .menu-icon-bottom-arrow {
-    mask-image: url('/src/assets/icons/menu-icons/moveTaskDownIcon.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/moveTaskDownIcon.png');
+    mask-image: url('../assets/icons/menu-icons/moveTaskDownIcon.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/moveTaskDownIcon.png');
 }
 
 .task-options-menu .menu-icon-right-arrow {
-    mask-image: url('/src/assets/icons/menu-icons/moveTaskColumn.png');
-    -webkit-mask-image: url('/src/assets/icons/menu-icons/moveTaskColumn.png');
+    mask-image: url('../assets/icons/menu-icons/moveTaskColumn.png');
+    -webkit-mask-image: url('../assets/icons/menu-icons/moveTaskColumn.png');
 }
 
 button:hover > .menu-icon-delete {

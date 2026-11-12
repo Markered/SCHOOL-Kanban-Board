@@ -94,18 +94,23 @@
 }
 
 .board-columns {
-    display: flex;
-    gap: 15px;
+    column-width: 240px;
+    column-gap: 10px;
+    column-fill: auto;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-top: 20px;
     position: relative;
     flex: 1;
     min-height: 0;
 }
 
 .board-column {
-    margin-top: 20px;
+    width: 100%;
+    margin: 0 0 15px;
     background-color: rgb(37, 35, 35);
     border: 1px solid rgba(58, 58, 58, 0.1);
-    width: 300px;
     box-sizing: border-box;
     padding: 10px;
     border-radius: 5px;
@@ -113,6 +118,7 @@
     flex-direction: column;
     gap: 20px;
     height: fit-content;
+    break-inside: avoid;
 }
 
 .add-item-dropdown {
