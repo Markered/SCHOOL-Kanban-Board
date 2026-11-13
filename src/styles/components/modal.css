@@ -84,6 +84,10 @@ dialog::backdrop {
     border-radius: 5px;
 }
 
+.task-create-modal {
+    position: absolute;
+}
+
 .task-modal-header {
     display: flex;
     align-items: center;

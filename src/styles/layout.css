@@ -31,8 +31,10 @@ nav a:hover {
 }
 
 main {
+    position: relative;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 80px - 10px);
+    min-height: calc(100vh - 80px - 10px);
+    height: auto;
     padding: 20px;
 }

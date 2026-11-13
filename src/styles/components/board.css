@@ -94,19 +94,26 @@
 }
 
 .board-columns {
-    column-width: 240px;
-    column-gap: 16px;
-    column-fill: auto;
-    height: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 20px 4px 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    padding: 20px 24px 12px;
     position: relative;
-    flex: 1;
-    min-height: 0;
+    flex: 0 0 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
     overscroll-behavior-x: contain;
     scrollbar-color: rgb(86, 82, 82) rgb(32, 30, 30);
     scrollbar-width: thin;
+}
+
+.board-columns:has(.noBoardsMsg) {
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
 .board-columns::-webkit-scrollbar {
@@ -129,7 +136,9 @@
 }
 
 .board-column {
-    width: 100%;
+    flex: 0 0 240px;
+    width: 240px;
+    min-width: 0;
     margin: 0 0 15px;
     background-color: rgb(37, 35, 35);
     border: 1px solid rgba(58, 58, 58, 0.1);
@@ -140,7 +149,6 @@
     flex-direction: column;
     gap: 20px;
     height: fit-content;
-    break-inside: avoid;
 }
 
 .column-add-task {
@@ -167,8 +175,8 @@
 }
 
 .add-item-dropdown {
-    position: absolute;
-    bottom: 70px;
+    position: fixed;
+    bottom: 80px;
     right: 20px;
     background-color: rgb(32, 30, 30);
     border: 1px solid rgba(58, 58, 58, 0.1);
