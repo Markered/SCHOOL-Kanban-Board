@@ -1,0 +1,35 @@
+{
+    "members": [
+        {
+            "name": "Gab",
+            "role": "Project Manager/Developer",
+            "bio": "A random guy making random things.",
+            "image": "./src/assets/images/members/Gab.png"
+        },
+        {
+            "name": "Marcus",
+            "role": "Tester/QA",
+            "bio": "the pot (with sizzling effects)",
+            "image": "./src/assets/images/members/Marcus.png"
+        },
+        {
+            "name": "Yuan",
+            "role": "QA",
+            "bio": "The dumbledore (with wizard effects)",
+            "image": "./src/assets/images/members/Yuan.png"
+        },
+        {
+            "name": "Garnette",
+            "role": "Graphic Designer",
+            "bio": "The dore (with sound effects)",
+            "image": "./src/assets/images/members/Garnette.png",
+            "sound": "./src/assets/audio/garnette-sound.mp3"
+        },
+        {
+            "name": "Jellaux",
+            "role": "Graphic Designer",
+            "bio": "The dumble (with dumbbell effects)",
+            "image": "./src/assets/images/members/Jellaux.png"
+        }
+    ]
+}

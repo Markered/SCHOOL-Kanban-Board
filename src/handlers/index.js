@@ -9,6 +9,7 @@ function registerListeners() {
     app.addEventListener('click', (e) => {
         const openOverlays = getOpenOverlays();
         closeActiveOverlays(e);
+        playProfileSound(e);
         if (handleModalTriggers(e)) {
             enforceSingleOverlay(openOverlays, e.target);
             return;
@@ -23,6 +24,19 @@ function registerListeners() {
     window.addEventListener('hashchange', renderView);
     window.addEventListener('DOMContentLoaded', renderView);
     window.addEventListener('addItem', renderView);
+}
+
+function playProfileSound(e) {
+    const profileCard = e.target.closest('.about-team-member[data-sound]');
+    if (!profileCard) return;
+
+    const sound = profileCard.querySelector('.profile-sound');
+    if (!sound) return;
+
+    sound.currentTime = 0;
+    sound.play().catch(() => {
+        console.warn('The profile sound could not be played.');
+    });
 }
 
 function closeActiveOverlays(e) {

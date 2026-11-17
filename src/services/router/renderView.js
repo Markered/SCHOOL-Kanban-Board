@@ -1,19 +1,7 @@
 import BoardComponent from "../../components/BoardComponent/index.js";
 import HomeComponent from "../../components/HomeComponent/HomeComponent.js";
+import AboutComponent from "../../components/AboutComponent/index.js";
 import NotFoundComponent from "../../components/NotFoundComponent/index.js";
-
-function AboutComponent() {
-  return {
-    title: 'About Us - My App',
-    html: `
-      <h2>About Us</h2>
-      <p>This is the about page.</p>
-    `
-  };
-}
-
-const escapeHtml = (str) => 
-  str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
 
 const routes = {
   'home': HomeComponent,

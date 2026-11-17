@@ -1,0 +1,217 @@
+.about-page {
+    width: min(100%, 1100px);
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+
+.about-page h1 {
+    margin-bottom: 52px;
+    color: rgb(228, 187, 75);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.1;
+}
+
+.about-page h2 {
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    color: rgb(235, 235, 235);
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    letter-spacing: 0.02em;
+}
+
+.about-description {
+    max-width: 760px;
+    color: rgb(190, 190, 190);
+    line-height: 1.8;
+}
+
+.about-description {
+    margin-bottom: 52px;
+}
+
+.meet-the-team-banner {
+    display: block;
+    width: min(100%, 420px);
+    height: auto;
+    margin: 0 auto 24px;
+    object-fit: contain;
+}
+
+.team-illustration {
+    display: block;
+    width: min(100%, 520px);
+    height: auto;
+    margin: 0 auto 48px;
+    object-fit: contain;
+}
+
+.about-team-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+    justify-content: center;
+    gap: 36px 42px;
+    padding: 0;
+}
+
+.about-team-member {
+    width: 100%;
+    min-width: 0;
+    padding: 22px 24px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(58, 58, 58, 0.6);
+    background: transparent;
+}
+
+.about-team-member:hover {
+    background-color: rgba(58, 58, 58, 0.1);
+    border-color: rgba(58, 58, 58, 0.9);
+}
+
+.profile-card {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    column-gap: 20px;
+    align-items: start;
+    padding: 0;
+}
+
+.profile-icon {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    display: block;
+    width: 88px;
+    height: 88px;
+    margin: 0;
+    object-fit: contain;
+    transition: filter 160ms ease;
+}
+
+.about-team-member:hover .profile-icon {
+    filter: brightness(1.18) saturate(1.15);
+}
+
+.about-team-member:hover[data-effect="sizzling"] .profile-icon {
+    animation: sizzling-effect 180ms ease-in-out infinite alternate;
+}
+
+.about-team-member:hover[data-effect="wizard"] .profile-icon {
+    animation: wizard-effect 700ms ease-in-out infinite alternate;
+}
+
+.about-team-member:hover[data-effect="sound"] .profile-icon {
+    animation: sound-effect 450ms ease-in-out infinite alternate;
+}
+
+.about-team-member:hover[data-effect="dumbbell"] .profile-icon {
+    animation: dumbbell-effect 350ms ease-in-out infinite alternate;
+}
+
+@keyframes sizzling-effect {
+    from {
+        filter: brightness(1.1) saturate(1.2) drop-shadow(0 0 2px rgb(245, 196, 66));
+    }
+
+    to {
+        filter: brightness(1.35) saturate(1.5) drop-shadow(0 0 9px rgb(245, 135, 45));
+    }
+}
+
+@keyframes wizard-effect {
+    from {
+        transform: translateY(0) rotate(-3deg);
+        filter: drop-shadow(0 0 2px rgb(130, 100, 220));
+    }
+
+    to {
+        transform: translateY(-5px) rotate(3deg);
+        filter: drop-shadow(0 0 10px rgb(150, 120, 255));
+    }
+}
+
+@keyframes sound-effect {
+    from {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgb(70, 130, 220));
+    }
+
+    to {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 10px rgb(70, 130, 220));
+    }
+}
+
+@keyframes dumbbell-effect {
+    from {
+        transform: rotate(-5deg);
+    }
+
+    to {
+        transform: rotate(5deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-team-member:hover .profile-icon {
+        animation: none;
+    }
+}
+
+.profile-name {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 6px;
+    color: rgb(245, 245, 245);
+    font-size: 1.1rem;
+    line-height: 1.35;
+}
+
+.profile-title {
+    grid-column: 2;
+    grid-row: 2;
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(245, 196, 66);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.profile-card p {
+    grid-column: 2;
+    grid-row: 3;
+    color: rgb(170, 170, 170);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.profile-card p::before {
+    content: '\201C';
+    margin-right: 3px;
+    color: rgb(228, 187, 75);
+    font-size: 1.25rem;
+}
+
+.profile-card p::after {
+    content: '\201D';
+    margin-left: 3px;
+    color: rgb(228, 187, 75);
+    font-size: 1.25rem;
+}
+
+.profile-sound {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .about-page {
+        padding: 32px 12px 48px;
+    }
+
+    .about-page h1 {
+        margin-bottom: 40px;
+    }
+
+    .about-team-list {
+        gap: 28px;
+    }
+}
