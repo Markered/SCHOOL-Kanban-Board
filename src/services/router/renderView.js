@@ -9,7 +9,7 @@ const routes = {
   'board': BoardComponent,
 };
 
-function renderView() {
+async function renderView() {
   if (!window.location.hash || window.location.hash === '#') {
     window.location.replace('#home');
     return; 
@@ -20,9 +20,19 @@ function renderView() {
   
   const ViewComponent = routes[routeKey] !== undefined ? routes[routeKey] : NotFoundComponent;
   
-  const { title, html } = ViewComponent(param);
-  document.title = title;
-  document.getElementById('app').innerHTML = html;
+  try {
+    const { title, html } = await ViewComponent(param);
+    document.title = title;
+    document.getElementById('app').innerHTML = html;
+  } catch (error) {
+    console.error('Unable to render the current view.', error);
+    document.getElementById('app').innerHTML = `
+      <section class="not-found-container">
+        <h2>Unable to load this page</h2>
+        <p>Please refresh and try again.</p>
+      </section>
+    `;
+  }
 }
 
 export default renderView;

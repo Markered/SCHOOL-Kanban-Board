@@ -1,9 +1,13 @@
 import ProfileCard from './ProfileCard.js';
-import membersData from './members.json' with { type: 'json' };
 
-const { members } = membersData;
+async function AboutComponent() {
+    const membersResponse = await fetch(new URL('./members.json', import.meta.url));
+    if (!membersResponse.ok) {
+        throw new Error(`Unable to load members.json (${membersResponse.status})`);
+    }
 
-function AboutComponent() {
+    const { members } = await membersResponse.json();
+
     return {
         title: 'About - Kanban',
         html: `
