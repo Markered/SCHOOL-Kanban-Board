@@ -4,32 +4,36 @@
             "name": "Gab",
             "role": "Project Manager/Developer",
             "bio": "A random guy making random things.",
-            "image": "./src/assets/images/members/Gab.png"
+            "image": "./src/assets/images/members/Gab.png",
+            "sound": "./src/assets/audio/67.m4a"
         },
         {
             "name": "Marcus",
             "role": "Tester/QA",
             "bio": "the pot (with sizzling effects)",
-            "image": "./src/assets/images/members/Marcus.png"
+            "image": "./src/assets/images/members/Marcus.png",
+            "sound": "./src/assets/audio/Sizzling.m4a"
         },
         {
             "name": "Yuan",
             "role": "QA",
             "bio": "The dumbledore (with wizard effects)",
-            "image": "./src/assets/images/members/Yuan.png"
+            "image": "./src/assets/images/members/Yuan.png",
+            "sound": "./src/assets/audio/Fireball.m4a"
         },
         {
             "name": "Garnette",
             "role": "Graphic Designer",
             "bio": "The dore (with sound effects)",
             "image": "./src/assets/images/members/Garnette.png",
-            "sound": "./src/assets/audio/garnette-sound.mp3"
+            "sound": "./src/assets/audio/The dore.m4a"
         },
         {
             "name": "Jellaux",
             "role": "Graphic Designer",
             "bio": "The dumble (with dumbbell effects)",
-            "image": "./src/assets/images/members/Jellaux.png"
+            "image": "./src/assets/images/members/Jellaux.png",
+            "sound": "./src/assets/audio/Dumbbell.m4a"
         }
     ]
 }

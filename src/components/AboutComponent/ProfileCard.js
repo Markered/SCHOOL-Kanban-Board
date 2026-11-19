@@ -3,7 +3,6 @@ function ProfileCard({ name, role, bio, image, sound }) {
     const effect = effectMatch
         ? effectMatch[1].toLowerCase().replace(/\s+/g, '-')
         : '';
-    const cleanBio = bio.replace(/\s*\(with .+? effects\)/i, '');
     const effectAttribute = effect ? ` data-effect="${effect}"` : '';
     const soundAttribute = sound ? ` data-sound="${sound}"` : '';
 
@@ -13,7 +12,7 @@ function ProfileCard({ name, role, bio, image, sound }) {
                 <img class="profile-icon" src="${image}" alt="${name}">
                 <h3 class="profile-name">${name}</h3>
                 <span class="profile-title">${role}</span>
-                <p>${cleanBio}</p>
+                <p>${bio}</p>
                 ${sound ? `<audio class="profile-sound" src="${sound}" preload="auto"></audio>` : ''}
             </div>
         </li>
